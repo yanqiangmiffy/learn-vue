@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vue事件深入</title>
+</head>
+<body>
+    <div id="app" >
+        <input type="button" value="按钮" @contextmenu="show($event)">
+    </div>
+<script src="../vue.js"></script>
+<script>
+    window.onload=function () {
+        var vm=new Vue({
+            el:'#app',//选择器
+            methods:{
+                show:function (ev) {
+                    alert(1);
+                    ev.preventDefault();//阻止默认行为
+                }
+            }
+        })
+    }
+</script>
+</body>
+</html>

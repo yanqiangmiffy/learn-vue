@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vue雏形</title>
+</head>
+<body>
+    <div id="app">
+        {{msg}}
+    </div>
+<script src="../vue.js"></script>
+<script>
+    window.onload=function () {
+        var vm=new Vue({
+            el:'#app',
+            data:{
+                msg:'welcome vue'
+            }
+        })
+    }
+</script>
+</body>
+</html>

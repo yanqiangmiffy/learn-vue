@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vue事件深入</title>
+</head>
+<body>
+    <div id="app">
+        <input type="button" value="点击" @click="show">
+        <input type="button" value="事件对象" @click="greet($event,12)">
+    </div>
+<script src="../vue.js"></script>
+<script>
+    window.onload=function () {
+        var vm=new Vue({
+            el:'#app',//选择器
+            data:{
+                msg:'welcome vue'
+            },
+            methods:{
+                show:function () {
+                    alert("我是事件v-on简写方式：@click='show()'")
+                },
+                greet:function (event,b) {
+                    alert(event.clientX)
+                    alert(b)
+                }
+            }
+        })
+    }
+</script>
+</body>
+</html>

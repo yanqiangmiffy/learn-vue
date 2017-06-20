@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vue模板</title>
+
+</head>
+<body>
+    <div id="app" >
+        <input type="text" v-model="msg">
+        <br>
+        {{msg}}
+        <br>
+        <!--{{*msg}}-->
+        <br>
+        <p v-html="msg"></p>
+    </div>
+<script src="../vue.js" ></script>
+<script>
+    window.onload=function () {
+        var vm=new Vue({
+            el:'#app',//选择器
+            data:{
+                msg:'a'
+            }
+        })
+    }
+</script>
+</body>
+</html>

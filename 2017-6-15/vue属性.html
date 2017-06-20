@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vue事件深入-键盘事件</title>
+</head>
+<body>
+    <div id="app" >
+        <!--<img :src="url" alt="">-->
+        <br>
+        <!--<img v-bind:src="url" alt="">-->
+        <img :src="url" alt="" :width="w" :title="t">
+    </div>
+<script src="../vue.js" ></script>
+<script>
+    window.onload=function () {
+        var vm=new Vue({
+            el:'#app',//选择器
+            data:{
+                url:'https://www.baidu.com/img/bd_logo1.png',
+                w:'200px',
+                t:'这是一种百度图片'
+            }
+
+        })
+    }
+</script>
+</body>
+</html>

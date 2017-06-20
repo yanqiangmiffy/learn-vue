@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vue常用指令</title>
+    <style>
+
+        thead{
+            background-color: #42b983;
+        }
+        td{
+            border: 1px solid #eeeeee;
+            width: 200px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+v-if指令
+v-show指令
+v-else指令
+v-for指令
+v-bind指令
+v-on指令
+
+<div id="app">
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Sex</th>
+            </tr>
+        </thead>
+
+        <tr v-for="person in people">
+            <td>{{person.name}}</td>
+            <td>{{person.age}}</td>
+            <td>{{person.sex}}</td>
+        </tr>
+    </table>
+</div>
+
+<script src="vue.js"></script>
+<script>
+    new Vue({
+        el:'#app',
+        data:{
+            people:[{
+                name:'小强',
+                age:20,
+                sex:'男'
+            },{
+                name:'小飞',
+                age:22,
+                sex:'女'
+            },{
+                name:'小华',
+                age:23,
+                sex:'女'
+            },{
+                name:'小明',
+                age:24,
+                sex:'男'
+            }]
+        }
+    })
+</script>
+</body>
+</html>

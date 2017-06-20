@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue简易留言板</title>
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+<body>
+
+<div class="container" id="app">
+    <form action="" role="form">
+        <div class="form-group row">
+            <label for="username" class="col-2 col-form-label">用户名</label>
+            <div class="col-10">
+                <input type="text" id="username" class="form-control" v-model="username" placeholder="请输入用户名">
+            </div>
+        </div>
+       <div class="form-group row">
+           <label for="age" class="col-2 col-form-label">年龄</label>
+           <div class="col-10">
+               <input type="text" id="age" class="form-control" v-model="age" placeholder="请输入年龄">
+           </div>
+       </div>
+       <div class="form-group row">
+           <input type="button" v-on:click="add()" value="添加" class="btn btn-primary" style="margin-right: 20px">
+           <input type="reset" value="重置" class="btn btn-danger">
+       </div>
+    </form>
+    <hr>
+    <table class="table table-bordered">
+        <h2 class="text-center text-info">用户信息表</h2>
+        <tr class="text-primary">
+            <th class="text-center">序号</th>
+            <th class="text-center">用户名</th>
+            <th class="text-center">年龄</th>
+            <th class="text-center">操作</th>
+        </tr>
+
+        <tr class="text-center" v-for="(value,index) in myData">
+            <td>{{index+1}}</td>
+            <td>{{value.name}}</td>
+            <td>{{value.age}}</td>
+            <td><button class="btn btn-success" data-toggle="modal" data-target="#message" v-on:click="nowIndex=index" >删除</button></td>
+        </tr>
+        <tr v-show="myData.length!=0">
+            <td colspan="4" class="text-right">
+                <button class="btn btn-danger" data-toggle="modal" data-target="#message" v-on:click="nowIndex=-2">全部删除</button>
+            </td>
+        </tr>
+        <tr v-show="myData.length==0">
+            <td colspan="4" class="text-center text-muted">
+               暂无数据
+            </td>
+        </tr>
+    </table>
+    <!--模态框-->
+    <div class="modal fade" id="message" role="dialog" aria-labelledby="message" :data-index="nowIndex">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" >确定要删除信息吗</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    这是想要的内容
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
+                    <button type="button" v-on:click="deleteRec(nowIndex)" class="btn btn-primary" data-dismiss="modal">确定</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script src="../js/jquery-3.2.1.min.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+<script src="../vue.js"></script>
+<script>
+    var vm=new Vue({
+        el:'#app',
+        data:{
+            myData:[
+                {name:'小强',age:20},
+                {name:'小华',age:21},
+                {name:'小明',age:22},
+                {name:'小丽',age:23},
+                ],
+            username:'',
+            age:'',
+            nowIndex:-100
+        },
+        methods:{
+            //添加数据
+            add:function () {
+                this.myData.push({
+                    name:this.username,
+                    age:this.age
+                })
+                this.username='',
+                this.age=''
+            },
+            //删除数据
+            deleteRec:function (n) {
+                if(n==-2){
+                    this.myData=[]
+                }
+                this.myData.splice(n,1)
+            }
+        }
+    })
+</script>
+</body>
+</html>

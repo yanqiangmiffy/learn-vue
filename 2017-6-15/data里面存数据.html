@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vue常用指令v-model</title>
+    <style>
+        body{
+            font-weight: bolder;
+            font-size: 40px;
+            font-family: "Arial Rounded MT Bold";
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <input type="text" v-model="msg">
+        <input type="text" v-model="msg">
+        <br>
+        {{msg}}
+        <br>
+        {{msg2}}
+        <br>
+        {{msg3}}
+        <br>
+        {{arr}}
+        <br>
+        {{json}}
+    </div>
+<script src="../vue.js"></script>
+<script>
+    window.onload=function () {
+        var vm=new Vue({
+            el:'#app',//选择器
+            data:{
+                msg:'welcome vue',
+                msg2:12,
+                msg3:true,
+                arr:['apple','banana','orange'],
+                json:{a:'apple',b:'banana',c:'orange'}
+            }
+        })
+    }
+</script>
+</body>
+</html>

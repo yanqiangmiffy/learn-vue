@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vue常用指令v-model</title>
+</head>
+<body>
+    <div id="app">
+        <input type="text" v-model="msg">
+        <input type="text" v-model="msg">
+        <br>
+        {{msg}}
+    </div>
+<script src="../vue.js"></script>
+<script>
+    window.onload=function () {
+        var vm=new Vue({
+            el:'#app',//选择器
+            data:{
+                msg:'welcome vue'
+            }
+        })
+    }
+</script>
+</body>
+</html>
